@@ -1,0 +1,26 @@
+footer {
+  & .socials {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+  }
+}
+
+.socials {
+  &__item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  &__link {
+    color: transparent;
+  }
+}
+
+@media (max-width: 1000px) {
+
+  footer {
+    & .socials {
+      justify-content: flex-start;
+    }
+  }
+}

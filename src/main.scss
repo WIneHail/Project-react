@@ -1,0 +1,249 @@
+@font-face {
+  font-family: 'Play';
+  src: url('./assets/fonts/Play-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Play';
+  src: url('./assets/fonts/Play-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  font-family: 'Play', sans-serif;
+  line-height: 32px;
+
+  color: rgba(255, 255, 255, 0.87);
+  background: linear-gradient(180deg, #000000 0%, rgba(39, 36, 36, 0.7) 100%),
+    linear-gradient(178.73deg, rgba(39, 135, 245, 0.18) -17.53%, rgba(163, 147, 245, 0.18) 131.74%);
+  ;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+#root {
+  margin: 0 auto;
+  padding: 20px 50px;
+
+  min-width: 375px;
+  max-width: 1440px;
+  width: 100%;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  border-bottom: 1.5px solid transparent;
+  transition: border-bottom .3s ease-in-out;
+
+  @media (hover:hover) {
+    &:hover {
+      border-bottom: 1.5px solid #DC5DFC;
+    }
+  }
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+svg {
+  fill: currentColor;
+}
+
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inset: 0px;
+  background-color: #00000080;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+
+  &.dropdown {
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 20px 5px;
+
+    & .modal-body {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .input {
+      width: 100%;
+    }
+
+    .input__field {
+      opacity: 1;
+      visibility: visible;
+      padding: 11px 40px;
+      width: 100%;
+      height: 56px;
+    }
+  }
+
+  &.video {
+
+    & .modal-body {
+      width: 1104px;
+      border-radius: unset;
+    }
+  }
+}
+
+.modal-body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: unset;
+  width: 564px;
+  min-height: 381px;
+  background: transparent;
+  overflow: auto;
+  border-radius: 24px;
+  outline: none;
+  padding: 0 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 24px;
+  color: #000000;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+@media (max-width: 1000px) {
+  #root {
+    padding: 20px 20px;
+  }
+
+  .modal-body {
+    padding: 0;
+    width: 335px;
+    min-height: unset;
+    border-radius: unset;
+  }
+
+  .modal-overlay.dropdown {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .modal-close {
+    background-color: transparent;
+  }
+
+  .dropdown {
+    .modal-close {
+      top: 5px;
+      z-index: 99;
+      color: #FFFFFF;
+    }
+
+    .header__badge {
+      top: 15px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    margin-bottom: 20px;
+
+    &__logo {
+      height: 18px;
+    }
+
+    &__btn {
+      padding: 0;
+    }
+
+    &__input {
+      opacity: 0;
+      visibility: hidden;
+      width: 0;
+      margin-right: 0px;
+    }
+
+    &__badge {
+      color: #FFFFFF;
+    }
+  }
+
+  .nav {
+
+    &__link--mobile {
+      display: block;
+    }
+  }
+}

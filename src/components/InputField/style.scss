@@ -1,0 +1,58 @@
+.input {
+  display: flex;
+  position: relative;
+  transition:
+    color .3s ease-in-out,
+    border-color .3s ease-in-out;
+
+  @media (hover:hover) {}
+
+  &:hover,
+  &:focus {
+
+    .badge {
+      color: #B4A9FF;
+    }
+  }
+
+  &__error {
+    color: red;
+  }
+
+  &__field {
+    padding: 11px 40px;
+    border: 1px solid #393B3C;
+    background-color: #393B3C;
+    border-radius: 8px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+
+    &:hover,
+    &:focus {
+      border-color: #B4A9FF;
+
+      .badge {
+        color: #B4A9FF;
+      }
+    }
+
+    &:invalid {
+      border-color: #FF7575;
+    }
+  }
+}
+
+.badge {
+  background: transparent;
+  border: none !important;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 25%;
+  left: 10px;
+  color: #FFFFFF80;
+}
+
+@media (max-width: 1000px) {}
