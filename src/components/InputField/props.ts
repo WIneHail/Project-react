@@ -1,9 +1,9 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react';
 
 export interface Props {
-  imgChild: ReactNode,
-  child: ReactNode,
-  errorMessage?: string;
-  dropdown?: ReactNode
-  btn?: ReactNode
+    imgChild: ReactNode;
+    child: ReactNode;
+    errorMessage?: string;
+    dropdown?: ReactNode;
+    btn?: ReactNode;
 }
