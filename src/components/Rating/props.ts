@@ -1,5 +1,5 @@
 export interface Props {
-  rating: number,
-  className: string,
-  isSmall: boolean
+    rating: number;
+    className: string;
+    isSmall: boolean;
 }

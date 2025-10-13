@@ -1,19 +1,22 @@
-import { useQuery } from "@tanstack/react-query"
-import { Genres, fetchGenresList } from "../api/Genres"
-import { queryClient } from "../api/QueryClient"
+import { useQuery } from '@tanstack/react-query';
+
+import { fetchGenresList, Genres } from '../api/Genres';
+import { queryClient } from '../api/QueryClient';
 
 interface useGenresListResp {
-  data: Genres | [],
+    data: Genres | [];
 }
 
 export const useGenresList = (): useGenresListResp => {
-  const data = useQuery({
-    queryKey: ['genresList'],
-    queryFn: () => fetchGenresList(),
-    initialData: [],
-    retry: false,
-  },
-    queryClient)
+    const data = useQuery(
+        {
+            queryKey: ['genresList'],
+            queryFn: () => fetchGenresList(),
+            initialData: [],
+            retry: false,
+        },
+        queryClient,
+    );
 
-  return data
-}
+    return data;
+};

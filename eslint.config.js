@@ -1,29 +1,28 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import prettier from 'eslint-plugin-prettier/recommended';
+import pluginReact from 'eslint-plugin-react';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{js,jsx}'],
-    extends: [
-      js.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-      parserOptions: {
-        ecmaVersion: 'latest',
-        ecmaFeatures: { jsx: true },
-        sourceType: 'module',
-      },
+    {
+        files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+        plugins: { js, 'simple-import-sort': simpleImportSort },
+        extends: ['js/recommended'],
+        languageOptions: { globals: globals.browser },
     },
-    rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    tseslint.configs.recommended,
+    pluginReact.configs.flat.recommended,
+    prettier,
+    {
+        rules: {
+            'react/react-in-jsx-scope': 'off',
+            'react/jsx-uses-react': 'off',
+            'simple-import-sort/imports': 'error',
+            'simple-import-sort/exports': 'error',
+        },
     },
-  },
-])
+    globalIgnores(['./dist/']),
+]);
